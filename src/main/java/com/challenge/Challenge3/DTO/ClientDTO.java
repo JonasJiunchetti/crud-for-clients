@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import com.challenge.Challenge3.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,12 +15,14 @@ public class ClientDTO {
 
     private Long id;
 
+    @NotBlank(message = "Name is required")
     private String name;
 
     private String cpf;
 
     private Double income;
 
+    @PastOrPresent(message = "It must be a past or present date")
     private LocalDate birthDate;
     
     private Integer children;
